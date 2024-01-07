@@ -4,32 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- // tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/c081ae73ef.js" crossorigin="anonymous"></script>
     <title>Bangla-Puzzle</title>
 </head>
 
-<body>
-    <!-- // header  -->
-    <header>
-        <nav>
-            <button>
-                <img src="./src//img/nav-main-image.png" alt="navbar-main-image">
-            </button>
-        </nav>
-        <nav>
-            <h1>s</h1>
-            <h1>s</h1>
-        </nav>
-    </header>
+<body class="min-h-full mt-[-2px] border">
+    <section class="max-w-screen-lg border mx-auto">
+        <!-- // header  -->
+        <header class="flex items-center justify-between gap-4 font-bold px-2 py-2 bg-[#f5e9ee] mt-0">
+            <nav class="flex items-center gap-4">
+                <button>
+                    <img class="h-8 w-16" src="./src/img/nav-main-image.png" alt="navbar-main-image">
+                </button>
+                <button>
+                    MENU
+                </button>
+                <button>
+                    REWARDS
+                </button>
+                <button>
+                    LOCATION
+                </button>
+                <button>
+                    GIFT CARDS
+                </button>
+                <button>
+                    LOG IN
+                </button>
+            </nav>
+            <nav class="flex items-center gap-4">
+                <button class="relative">
+                    <i class="fa-solid fa-bag-shopping text-3xl"></i>
+                    <i class="bg-red-500 text-white rounded-sm text-sm font-normal px-[3px] absolute right-0">1</i>
+                </button>
+                <button class="bg-red-500 text-white px-8 rounded-md py-2">
+                    ORDER NOW
+                </button>
+            </nav>
+        </header>
 
-    <!-- // middle text  -->
-    <section>
+        <!-- // middle text  -->
+        <section class="text-center space-y-4 my-2">
+            <h1 class="text-red-500 text-3xl font-semibold">CHICKEN CRISPER&#174; COMBOS </h1>
+            <p class="font-semibold">
+                <button class="text-red-400">Menu </button>
+                <button>> </button>
+                <button>Chicken Crisper&#174; Combos </button>
+            </p>
+            <p class="text-lg">
+                Find everything from our Big Mouth Burgers&#174;, our always sizzling, Full-on Fajitas and our famous
+                Chicken Crispers&#174;
+            </p>
+        </section>
 
-    </section>
+        <!-- // card  -->
+        <section>
+            <div class="text-right px-2 my-8">
+                <select name="" id="" class="border px-2 py-1 rounded-md">
+                    <option value="Menu">Menu</option>
+                    <!-- <option value="REWARDS">REWARDS</option>
+                    <option value="LOCATION">LOCATION</option>
+                    <option value="GIFT CARDS">GIFT CARDS</option>
+                    <option value="LOG IN">LOG IN</option> -->
+                </select>
+            </div>
 
-    <!-- // card  -->
-    <section>
+            <!-- players  -->
+            <main class="grid md:grid-cols-2 lg:grid-cols-3 gap-9 m-2">
 
+                <div class="w-full p-4 shadow-xl bg-slate-100 rounded-md">
+                    <div>
+                        <img src="./src/img/chicken.jpg" alt="Lionel-Messi" class="" />
+                    </div>
+                    <div class="my-3">
+                        <h2 class="text-xl font-semibold">Chicken</h2>
+                        <p class="">69$/each</p>
+                    </div>
+                    <div class="my-4">
+                        <p class="">
+                            Chicken Fajitas served with rice and beans, tortillas,
+                            guacamole, salsa and sour cream Chicken Fajitas served wi...
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <button class="bg-red-500 text-white px-8 rounded-md py-2 w-full font-semibold"
+                            onclick=" selectP(this)">
+                            Add to Ordrer
+                        </button>
+                        <button class="text-red-500 border-2 border-red-500 px-8 rounded-md py-2 w-full font-semibold"
+                            onclick=" selectP(this)">
+                            Customize
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full p-4 shadow-xl bg-slate-100 rounded-md">
+                    <div>
+                        <img src="./src/img/chicken.jpg" alt="Lionel-Messi" class="" />
+                    </div>
+                    <div class="my-3">
+                        <h2 class="text-xl font-semibold">Fajitas</h2>
+                        <p class="">169$/each</p>
+                    </div>
+                    <div class="my-4">
+                        <p class="">
+                            Chicken Fajitas served with rice and beans, tortillas,
+                            guacamole, salsa and sour cream Chicken Fajitas served wi...
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <button class="bg-slate-500 text-white px-8 rounded-md py-2 w-full font-semibold"
+                            onclick=" selectP(this)">
+                            Add to Cart
+                        </button>
+                        <button class="text-red-500 border-2 border-red-500 px-8 rounded-md py-2 w-full font-semibold"
+                            onclick=" selectP(this)">
+                            Customize
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full p-4 shadow-xl bg-slate-100 rounded-md">
+                    <div>
+                        <img src="./src/img/chicken-masala.jpg" alt="Lionel-Messi" class="" />
+                    </div>
+                    <div class="my-3">
+                        <h2 class="text-xl font-semibold">Chicken Masala</h2>
+                        <p class="">269$/each</p>
+                    </div>
+                    <div class="my-4">
+                        <p class="">
+                            Chicken Fajitas served with rice and beans, tortillas,
+                            guacamole, salsa and sour cream Chicken Fajitas served wi...
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <button class="bg-red-500 text-white px-8 rounded-md py-2 w-full font-semibold"
+                            onclick=" selectP(this)">
+                            Add to Ordrer
+                        </button>
+                        <button class="text-red-500 border-2 border-red-500 px-8 rounded-md py-2 w-full font-semibold"
+                            onclick=" selectP(this)">
+                            Customize
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </section>
     </section>
 
     <!-- // sidebar  -->
@@ -41,6 +165,7 @@
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
+    </section>
 </body>
 
 </html>
