@@ -16,8 +16,6 @@ const itemIncrement = (id, name, quantity, price, totalPrice) => {
         shopingBag[itemIndex] = updatedItem;
 
         amountTotal += updatedItem.price;
-        bagItemCount[0].innerText = shopingBag.length;
-        bagItemCount[1].innerText = shopingBag.length;
         allTotalAmount.innerText = amountTotal;
 
         // Update the cart display
@@ -39,8 +37,6 @@ const itemDecrement = (id, name, quantity, price, totalPrice) => {
             shopingBag[itemIndex] = updatedItem;
 
             amountTotal -= updatedItem.price;
-            bagItemCount[0].innerText = shopingBag.length;
-            bagItemCount[1].innerText = shopingBag.length;
             allTotalAmount.innerText = amountTotal;
 
             // Update the cart display
