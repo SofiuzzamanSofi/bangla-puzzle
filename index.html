@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangla-Puzzle</title>
 
     <!-- // tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- font awesome  -->
     <script src="https://kit.fontawesome.com/c081ae73ef.js" crossorigin="anonymous"></script>
-    <title>Bangla-Puzzle</title>
 </head>
 
 <body class="min-h-full mt-[-2px] border">
@@ -96,12 +96,12 @@
                         </div>
                         <div class="space-y-2">
                             <button class="bg-red-500 text-white px-8 rounded-md py-2 w-full font-semibold"
-                                onclick=" selectP(this)">
-                                Add to Ordrer
+                                onclick="addToCart(this)">
+                                Add to Cart
                             </button>
                             <button
                                 class="text-red-500 border-2 border-red-500 px-8 rounded-md py-2 w-full font-semibold"
-                                onclick=" selectP(this)">
+                                onclick="removeFromCart(this)">
                                 Customize
                             </button>
                         </div>
@@ -121,8 +121,8 @@
                             </p>
                         </div>
                         <div class="space-y-2">
-                            <button class="bg-slate-500 text-white px-8 rounded-md py-2 w-full font-semibold"
-                                onclick=" selectP(this)">
+                            <button class="bg-red-500 text-white px-8 rounded-md py-2 w-full font-semibold"
+                                onclick="addToCart(this)">
                                 Add to Cart
                             </button>
                             <button
@@ -148,8 +148,8 @@
                         </div>
                         <div class="space-y-2">
                             <button class="bg-red-500 text-white px-8 rounded-md py-2 w-full font-semibold"
-                                onclick=" selectP(this)">
-                                Add to Ordrer
+                                onclick="addToCart(this)">
+                                Add to Cart
                             </button>
                             <button
                                 class="text-red-500 border-2 border-red-500 px-8 rounded-md py-2 w-full font-semibold"
@@ -173,7 +173,8 @@
                     Close
                 </button>
             </div>
-            <div class="space-y-4 bg-red-500 text-white p-4 h-full">
+            <div class="space-y-4 bg-red-500 text-white p-4 h-full" id="shoping-bag">
+
                 <div class="relative rounded-md border-2 p-2 flex justify-between items-center gap-2">
                     <div class="">
                         <img src="./src/img/chicken.jpg" alt="Lionel-Messi" class="rounded-md h-28 w-16 object-cover" />
@@ -197,6 +198,7 @@
                             class="fa-solid fa-trash text-red-500 bg-white p-[6px] rounded-md absolute right-[-8px] top-[-8px]"></i>
                     </div>
                 </div>
+
                 <div class="relative rounded-md border-2 p-2 flex justify-between items-center gap-2">
                     <div class="">
                         <img src="./src/img/chicken.jpg" alt="Lionel-Messi" class="rounded-md h-28 w-16 object-cover" />
@@ -220,6 +222,7 @@
                             class="fa-solid fa-trash text-red-500 bg-white p-[6px] rounded-md absolute right-[-8px] top-[-8px]"></i>
                     </div>
                 </div>
+
             </div>
         </aside>
     </section>
@@ -233,6 +236,9 @@
             </h1>
         </div>
     </section>
+
+    <!-- javaScript add  -->
+    <script src="src/js/order.js"></script>
 </body>
 
 </html>
