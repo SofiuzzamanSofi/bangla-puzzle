@@ -1,10 +1,19 @@
 let shopingBag = [];
 let amountTotal = 0;
 const shopingBagDiv = document.getElementById("shoping-bag");
-const cartDiv = document.getElementById("cart");
+// const cartDiv = document.getElementById("cart");
 const bagItemCount = document.querySelectorAll(".bag-item-count");
 const allTotalAmount = document.getElementById("all-total-amount");
 // console.log('bagItemCount:', bagItemCount);
+
+//
+const itemIncrement = (id, name, quantity, price, totalPrice) => {
+    console.log('id, name, quantity, price, totalPrice:', id, name, quantity, price, totalPrice);
+}
+//
+const itemDecrement = (id, name, quantity, price, totalPrice) => {
+    console.log('id, name, quantity, price, totalPrice:', id, name, quantity, price, totalPrice);
+}
 
 // bag cart show 
 const bagCartShow = (items) => {
@@ -20,9 +29,15 @@ const bagCartShow = (items) => {
                     <p class="text-xs">${item.price}$/each</p>
                 </div>
                 <div>
-                    <button class="bg-slate-100 text-black px-[6px] py-1 rounded-l">-</button>
-                    <button class="bg-white text-black px-4 mx-[-5px] hover:cursor-auto">1</button>
-                    <button class="bg-slate-100 text-black px-1 py-1 rounded-r">+</button>
+                    <button class="bg-slate-100 text-black px-[6px] py-1 rounded-l disabled"
+                    onclick="itemDecrement('${item.id}', '${item.name}', ${item.quantity}, ${item.price}, ${item.totalPrice})">
+                    -
+                    </button>
+                    <button class="bg-white text-black px-4 mx-[-5px] hover:cursor-auto">${item.quantity}</button>
+                    <button class="bg-slate-100 text-black px-1 py-1 rounded-r"
+                    onclick="itemIncrement('${item.id}', '${item.name}', ${item.quantity}, ${item.price}, ${item.totalPrice})">
+                    +
+                    </button>
                 </div>
             </div>
             <div class=" mt-[5.5rem]">
@@ -31,7 +46,7 @@ const bagCartShow = (items) => {
             <div>
                 <button
                 class="fa-solid fa-trash text-red-500 bg-white p-[6px] rounded-md absolute right-[-8px] top-[-8px]"
-                onclick="removeFromCart('${item.name}', ${item.price}, ${item.totalPrice})">
+                onclick="removeFromCart('${item.id}', '${item.name}', ${item.quantity}, ${item.price}, ${item.totalPrice})">
                 </button>
             </div>
         </div>
@@ -56,15 +71,16 @@ function addToCart(button) {
 
     // Create the cardItem object
     let cardItem = {
+        id: cardContainer.id,
         name: name,
         image: image,
+        quantity: 1,
         price: price,
         totalPrice: price,
     };
 
     shopingBag.push(cardItem);
     amountTotal = amountTotal + cardItem.totalPrice
-    // console.log('Added to Cart:', shopingBag);
 
     //
     bagCartShow(shopingBag);
@@ -72,18 +88,26 @@ function addToCart(button) {
     bagItemCount[0].innerText = shopingBag.length;
     bagItemCount[1].innerText = shopingBag.length;
     allTotalAmount.innerText = amountTotal
-
 };
 
-function removeFromCart(name, price, totalPrice) {
-    // console.log('Remove:', name, price, totalPrice);
-    // console.log('shopingBag.length:', shopingBag.length);
+function removeFromCart(id, name, quantity, price, totalPrice) {
+    console.log('id, name, quantity, price, totalPrice:', id, name, quantity, price, totalPrice);
+    // return
 
-    shopingBag = shopingBag.filter(item => item.name !== name);
+    const restItems = shopingBag.filter(item => item.id !== id);
+    shopingBag = restItems;
+
     amountTotal = amountTotal - totalPrice;
     bagItemCount[0].innerText = shopingBag.length;
     bagItemCount[1].innerText = shopingBag.length;
     allTotalAmount.innerText = amountTotal
+
+    const cartComponent = document.getElementById(id);
+    const addToCartButton = cartComponent.querySelector('.bg-red-500.text-white.px-8.rounded-md.py-2.w-full.font-semibold');
+
+    // enable and color change
+    addToCartButton.classList.remove('bg-slate-500');
+    addToCartButton.disabled = false;
 
     if (!shopingBag.length) {
         shopingBagDiv.innerHTML = "";
