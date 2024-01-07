@@ -1,19 +1,54 @@
 let shopingBag = [];
 let amountTotal = 0;
 const shopingBagDiv = document.getElementById("shoping-bag");
-// const cartDiv = document.getElementById("cart");
 const bagItemCount = document.querySelectorAll(".bag-item-count");
 const allTotalAmount = document.getElementById("all-total-amount");
-// console.log('bagItemCount:', bagItemCount);
 
 //
 const itemIncrement = (id, name, quantity, price, totalPrice) => {
-    console.log('id, name, quantity, price, totalPrice:', id, name, quantity, price, totalPrice);
-}
-//
+    const itemIndex = shopingBag.findIndex(item => item.id === id);
+
+    if (itemIndex !== -1) {
+        const updatedItem = { ...shopingBag[itemIndex] };
+        updatedItem.quantity++;
+        updatedItem.totalPrice = updatedItem.quantity * updatedItem.price;
+
+        shopingBag[itemIndex] = updatedItem;
+
+        amountTotal += updatedItem.price;
+        bagItemCount[0].innerText = shopingBag.length;
+        bagItemCount[1].innerText = shopingBag.length;
+        allTotalAmount.innerText = amountTotal;
+
+        // Update the cart display
+        bagCartShow(shopingBag);
+    }
+};
+
 const itemDecrement = (id, name, quantity, price, totalPrice) => {
-    console.log('id, name, quantity, price, totalPrice:', id, name, quantity, price, totalPrice);
-}
+    if (quantity === 1) return;
+    const itemIndex = shopingBag.findIndex(item => item.id === id);
+
+    if (itemIndex !== -1) {
+        const updatedItem = { ...shopingBag[itemIndex] };
+
+        if (updatedItem.quantity > 1) {
+            updatedItem.quantity--;
+            updatedItem.totalPrice = updatedItem.quantity * updatedItem.price;
+
+            shopingBag[itemIndex] = updatedItem;
+
+            amountTotal -= updatedItem.price;
+            bagItemCount[0].innerText = shopingBag.length;
+            bagItemCount[1].innerText = shopingBag.length;
+            allTotalAmount.innerText = amountTotal;
+
+            // Update the cart display
+            bagCartShow(shopingBag);
+        }
+    }
+};
+
 
 // bag cart show 
 const bagCartShow = (items) => {
@@ -29,8 +64,9 @@ const bagCartShow = (items) => {
                     <p class="text-xs">${item.price}$/each</p>
                 </div>
                 <div>
-                    <button class="bg-slate-100 text-black px-[6px] py-1 rounded-l disabled"
-                    onclick="itemDecrement('${item.id}', '${item.name}', ${item.quantity}, ${item.price}, ${item.totalPrice})">
+                    <button class="bg-slate-100 text-black px-[6px] py-1 rounded-l" 
+                    onclick="itemDecrement('${item.id}', '${item.name}', ${item.quantity}, ${item.price}, ${item.totalPrice})"
+                    >
                     -
                     </button>
                     <button class="bg-white text-black px-4 mx-[-5px] hover:cursor-auto">${item.quantity}</button>
@@ -52,7 +88,7 @@ const bagCartShow = (items) => {
         </div>
         `
     )).join('');
-}
+};
 
 function addToCart(button) {
     button.disabled = true;
@@ -91,8 +127,6 @@ function addToCart(button) {
 };
 
 function removeFromCart(id, name, quantity, price, totalPrice) {
-    console.log('id, name, quantity, price, totalPrice:', id, name, quantity, price, totalPrice);
-    // return
 
     const restItems = shopingBag.filter(item => item.id !== id);
     shopingBag = restItems;
