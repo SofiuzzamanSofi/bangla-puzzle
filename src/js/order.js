@@ -147,3 +147,13 @@ function removeFromCart(id, name, quantity, price, totalPrice) {
         bagCartShow(shopingBag);
     }
 };
+
+// toggle
+function toggleSidebar() {
+    const sidebar = document.querySelector('aside');
+
+    console.log('click:');
+    // Toggle between "sidebar-open" and "sidebar-closed" classes
+    sidebar.classList.toggle('sidebar-open');
+    sidebar.classList.toggle('sidebar-closed');
+};

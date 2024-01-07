@@ -11,6 +11,9 @@
 
     <!-- font awesome  -->
     <script src="https://kit.fontawesome.com/c081ae73ef.js" crossorigin="anonymous"></script>
+
+    <!-- link css  -->
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body class="min-h-full mt-[-2px] border">
@@ -40,7 +43,7 @@
                     </button>
                 </nav>
                 <nav class="flex items-center gap-4">
-                    <button class="relative">
+                    <button class="relative" onclick="toggleSidebar()">
                         <i class="fa-solid fa-bag-shopping text-3xl"></i>
                         <i
                             class="bg-red-500 text-white rounded-sm text-sm font-normal px-[4px] absolute right-0 bag-item-count">0</i>
@@ -167,7 +170,7 @@
                     <i class="fa-solid fa-bag-shopping  text-xl"></i>
                     <span class="bag-item-count">0</span> Item
                 </button>
-                <button class="border border-red-500 px-1 rounded-md">
+                <button class="border border-red-500 px-1 rounded-md" onclick="toggleSidebar()">
                     Close
                 </button>
             </div>
