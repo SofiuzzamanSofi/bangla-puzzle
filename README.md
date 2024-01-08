@@ -6,6 +6,9 @@ Bangla-Puzzle
 
 ### Live Preview site: [Bangla-Puzzle](https://bangla-puzzle-sf.netlify.app/)
 
+![image](https://github.com/SofiuzzamanSofi/bangla-puzzle/assets/108426827/323d3ff3-89b4-4e7d-8eb3-85aa4554a2ac)
+
+
 <br/>
 
 ## Cloning and Installing dependencies
