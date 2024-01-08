@@ -22,7 +22,7 @@
 }
 
 .bag-sidebar-closed {
-    transform: translateX(0rem);
+    transform: translateX(16rem);
 }
 
 .bag-sidebar-open {
