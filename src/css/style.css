@@ -1,14 +1,28 @@
 /* Add transitions for smooth animation */
-aside {
+/* aside {
     transition: transform 0.3s ease-out;
 }
 
 /* Initial state of the sidebar */
-.sidebar-closed {
+/* .sidebar-closed {
     transform: translateX(100%);
-}
+} */
 
 /* Visible state of the sidebar */
-.sidebar-open {
+/* .sidebar-open {
+    transform: translateX(0);
+} */
+
+#bag-sidebar {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 2000ms;
+}
+
+.bag-sidebar-closed {
+    transform: translateX(20rem);
+}
+
+.bag-sidebar-open {
     transform: translateX(0);
 }

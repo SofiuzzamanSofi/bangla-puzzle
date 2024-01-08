@@ -18,7 +18,7 @@
 
 <body class="min-h-full mt-[-2px] border">
 
-    <section class="max-w-screen-xl border mx-auto relative">
+    <section class="max-w-screen-xl border mx-auto relative overflow-hidden">
         <aside class="max-w-screen-lg border">
             <!-- // header  -->
             <header class="flex items-center justify-between gap-4 font-bold px-2 py-2 bg-[#f5e9ee] mt-0">
@@ -43,7 +43,7 @@
                     </button>
                 </nav>
                 <nav class="flex items-center gap-4">
-                    <button class="relative" onclick="toggleSidebar()">
+                    <button class="relative" onclick="openSidebar()">
                         <i class="fa-solid fa-bag-shopping text-3xl"></i>
                         <i
                             class="bg-red-500 text-white rounded-sm text-sm font-normal px-[4px] absolute right-0 bag-item-count">0</i>
@@ -82,9 +82,9 @@
                 </div>
 
                 <!-- cart  -->
-                <main class="grid md:grid-cols-2 lg:grid-cols-3 gap-9 m-2" id="cart">
+                <main class="grid md:grid-cols-2 xl:grid-cols-3 gap-9 m-2" id="cart">
 
-                    <div class="w-full p-4 shadow-xl bg-slate-100 rounded-md" id="chicken">
+                    <div class="w-full  p-4 shadow-xl bg-slate-100 rounded-md" id="chicken">
                         <div>
                             <img src="./src/img/chicken.jpg" alt="chicken-pic" class="" />
                         </div>
@@ -164,13 +164,13 @@
         </aside>
 
         <!-- // sidebar  -->
-        <aside class="absolute top-0 right-0 w-64 border border-yellow-500 h-full overflow-hidden py-1">
-            <div class="text-red-500 flex justify-between px-4 py-3 font-semibold">
+        <aside class="absolute top-0 right-0 w-64 h-full overflow-hidden z-10 bag-sidebar-closed" id="bag-sidebar">
+            <div class="text-red-500 flex justify-between px-4 py-4 font-semibold bg-white">
                 <button class="relative">
                     <i class="fa-solid fa-bag-shopping  text-xl"></i>
                     <span class="bag-item-count">0</span> Item
                 </button>
-                <button class="border border-red-500 px-1 rounded-md" onclick="toggleSidebar()">
+                <button class="border border-red-500 px-1 rounded-md" onclick="closedSidebar()">
                     Close
                 </button>
             </div>

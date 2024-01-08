@@ -4,7 +4,7 @@ const shopingBagDiv = document.getElementById("shoping-bag");
 const bagItemCount = document.querySelectorAll(".bag-item-count");
 const allTotalAmount = document.getElementById("all-total-amount");
 
-//
+// quentity increment
 const itemIncrement = (id, name, quantity, price, totalPrice) => {
     const itemIndex = shopingBag.findIndex(item => item.id === id);
 
@@ -23,6 +23,7 @@ const itemIncrement = (id, name, quantity, price, totalPrice) => {
     }
 };
 
+// quentity decrement
 const itemDecrement = (id, name, quantity, price, totalPrice) => {
     if (quantity === 1) return;
     const itemIndex = shopingBag.findIndex(item => item.id === id);
@@ -46,7 +47,7 @@ const itemDecrement = (id, name, quantity, price, totalPrice) => {
 };
 
 
-// bag cart show 
+// bag cart show on div 
 const bagCartShow = (items) => {
     shopingBagDiv.innerHTML = items.map(item => (
         `
@@ -86,7 +87,12 @@ const bagCartShow = (items) => {
     )).join('');
 };
 
+// add to cart 
 function addToCart(button) {
+
+    // check sidebar is open or not
+    openSidebar()
+
     button.disabled = true;
     button.classList.add('bg-slate-500');
 
@@ -149,11 +155,20 @@ function removeFromCart(id, name, quantity, price, totalPrice) {
 };
 
 // toggle
-function toggleSidebar() {
-    const sidebar = document.querySelector('aside');
+function openSidebar() {
+    const bagSidebar = document.getElementById("bag-sidebar");
+    const isOpenAlready = bagSidebar.classList.contains("bag-sidebar-open");
+    if (isOpenAlready) return;
 
-    console.log('click:');
-    // Toggle between "sidebar-open" and "sidebar-closed" classes
-    sidebar.classList.toggle('sidebar-open');
-    sidebar.classList.toggle('sidebar-closed');
+    console.log('isOpenAlready:', isOpenAlready);
+
+    bagSidebar.classList.remove('bag-sidebar-closed');
+    bagSidebar.classList.add('bag-sidebar-open');
+};
+
+// toggle
+function closedSidebar() {
+    const bagSidebar = document.getElementById("bag-sidebar");
+    bagSidebar.classList.remove('bag-sidebar-open');
+    bagSidebar.classList.add('bag-sidebar-closed');
 };
