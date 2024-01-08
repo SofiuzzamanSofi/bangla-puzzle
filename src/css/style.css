@@ -1,17 +1,19 @@
-/* Add transitions for smooth animation */
-/* aside {
-    transition: transform 0.3s ease-out;
+/* //mobile menu  */
+#mobile-menu-sidebar {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 2000ms;
 }
 
-/* Initial state of the sidebar */
-/* .sidebar-closed {
-    transform: translateX(100%);
-} */
+.mobile-menu-sidebar-closed {
+    transform: translateX(-16rem);
+}
 
-/* Visible state of the sidebar */
-/* .sidebar-open {
+.mobile-menu-sidebar-open {
     transform: translateX(0);
-} */
+}
+
+/* bg slider  */
 
 #bag-sidebar {
     transition-property: all;
@@ -20,7 +22,7 @@
 }
 
 .bag-sidebar-closed {
-    transform: translateX(20rem);
+    transform: translateX(0rem);
 }
 
 .bag-sidebar-open {

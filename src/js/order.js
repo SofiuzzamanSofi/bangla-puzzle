@@ -154,7 +154,7 @@ function removeFromCart(id, name, quantity, price, totalPrice) {
     }
 };
 
-// toggle
+// bag open
 function openSidebar() {
     const bagSidebar = document.getElementById("bag-sidebar");
     const isOpenAlready = bagSidebar.classList.contains("bag-sidebar-open");
@@ -166,9 +166,38 @@ function openSidebar() {
     bagSidebar.classList.add('bag-sidebar-open');
 };
 
-// toggle
+// bag closed
 function closedSidebar() {
     const bagSidebar = document.getElementById("bag-sidebar");
+    const isOpenAlready = bagSidebar.classList.contains("bag-sidebar-closed");
+    if (isOpenAlready) return;
+
     bagSidebar.classList.remove('bag-sidebar-open');
     bagSidebar.classList.add('bag-sidebar-closed');
+};
+
+// bag toggle
+function openSidebarToggle() {
+    const bagSidebar = document.getElementById("bag-sidebar");
+    const isOpenAlready = bagSidebar.classList.contains("bag-sidebar-open");
+    if (isOpenAlready) {
+        closedSidebar()
+    }
+    else {
+        openSidebar()
+    }
+};
+
+// mobile Menu toggle
+function openMobileMenuToggle() {
+    const mobileMenuSidebar = document.getElementById("mobile-menu-sidebar");
+    const isOpenAlready = mobileMenuSidebar.classList.contains("mobile-menu-sidebar-open");
+    if (isOpenAlready) {
+        mobileMenuSidebar.classList.remove('mobile-menu-sidebar-open');
+        mobileMenuSidebar.classList.add('mobile-menu-sidebar-closed');
+    }
+    else {
+        mobileMenuSidebar.classList.remove('mobile-menu-sidebar-closed');
+        mobileMenuSidebar.classList.add('mobile-menu-sidebar-open');
+    }
 };

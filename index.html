@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="src/img/nav-main-image.png" />
     <title>Bangla-Puzzle</title>
 
     <!-- // tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
+
 
     <!-- font awesome  -->
     <script src="https://kit.fontawesome.com/c081ae73ef.js" crossorigin="anonymous"></script>
@@ -16,40 +18,47 @@
     <link rel="stylesheet" href="src/css/style.css">
 </head>
 
-<body class="min-h-full mt-[-2px] border">
+<body class="min-h-full mt-[-2px]">
 
-    <section class="max-w-screen-xl border mx-auto relative overflow-hidden">
-        <aside class="max-w-screen-lg border">
+    <section class="max-w-screen-xl mx-auto relative overflow-hidden">
+        <aside class="max-w-screen-lg border-b pb-10">
             <!-- // header  -->
             <header class="flex items-center justify-between gap-4 font-bold px-2 py-2 bg-[#f5e9ee] mt-0">
                 <nav class="flex items-center gap-4">
-                    <button>
-                        <img class="h-8 w-16" src="./src/img/nav-main-image.png" alt="navbar-main-image">
-                    </button>
-                    <button>
-                        MENU
-                    </button>
-                    <button>
-                        REWARDS
-                    </button>
-                    <button>
-                        LOCATION
-                    </button>
-                    <button>
-                        GIFT CARDS
-                    </button>
-                    <button>
-                        LOG IN
-                    </button>
+                    <div class="flex items-center gap-4">
+                        <button>
+                            <img class="h-8 w-16" src="./src/img/nav-main-image.png" alt="navbar-main-image">
+                        </button>
+                    </div>
+                    <div class="hidden lg:flex items-center gap-4">
+                        <button>
+                            MENU
+                        </button>
+                        <button>
+                            REWARDS
+                        </button>
+                        <button>
+                            LOCATION
+                        </button>
+                        <button>
+                            GIFT CARDS
+                        </button>
+                        <button>
+                            LOG IN
+                        </button>
+                    </div>
                 </nav>
                 <nav class="flex items-center gap-4">
-                    <button class="relative" onclick="openSidebar()">
+                    <button class="relative" onclick="openSidebarToggle()">
                         <i class="fa-solid fa-bag-shopping text-3xl"></i>
                         <i
                             class="bg-red-500 text-white rounded-sm text-sm font-normal px-[4px] absolute right-0 bag-item-count">0</i>
                     </button>
                     <button class="bg-red-500 text-white px-8 rounded-md py-2">
                         ORDER NOW
+                    </button>
+                    <button class="lg:hidden" onclick="openMobileMenuToggle()">
+                        <i class="fa-solid fa-bars text-3xl"></i>
                     </button>
                 </nav>
             </header>
@@ -74,7 +83,8 @@
                 <div class="text-right px-2 my-8">
                     <select name="" id="" class="border px-2 py-1 rounded-md">
                         <option value="Menu">Menu</option>
-                        <!-- <option value="REWARDS">REWARDS</option>
+                        <option value="REWARDS">REWARDS</option>
+                        <!-- 
                     <option value="LOCATION">LOCATION</option>
                     <option value="GIFT CARDS">GIFT CARDS</option>
                     <option value="LOG IN">LOG IN</option> -->
@@ -82,7 +92,7 @@
                 </div>
 
                 <!-- cart  -->
-                <main class="grid md:grid-cols-2 xl:grid-cols-3 gap-9 m-2" id="cart">
+                <main class="grid md:grid-cols-2 xl:grid-cols-3 gap-9 p-2" id="cart">
 
                     <div class="w-full  p-4 shadow-xl bg-slate-100 rounded-md" id="chicken">
                         <div>
@@ -163,9 +173,10 @@
             </section>
         </aside>
 
-        <!-- // sidebar  -->
-        <aside class="absolute top-0 right-0 w-64 h-full overflow-hidden z-10 bag-sidebar-closed" id="bag-sidebar">
-            <div class="text-red-500 flex justify-between px-4 py-4 font-semibold bg-white">
+        <!-- // bag-sidebar  -->
+        <aside class="absolute top-0 right-0 w-64 h-full overflow-hidden z-20 flex flex-col bag-sidebar-closed"
+            id="bag-sidebar">
+            <div class="text-red-500 flex justify-between px-4 py-[14px] font-semibold bg-white">
                 <button class="relative">
                     <i class="fa-solid fa-bag-shopping  text-xl"></i>
                     <span class="bag-item-count">0</span> Item
@@ -174,44 +185,54 @@
                     Close
                 </button>
             </div>
-            <div class="space-y-4 bg-red-500 text-white p-4 h-full" id="shoping-bag">
-
-                <!-- <div class="relative rounded-md border-2 p-2 flex justify-between items-center gap-2">
-                    <div class="">
-                        <img src="./src/img/chicken.jpg" alt="Lionel-Messi" class="rounded-md h-28 w-16 object-cover" />
-                    </div>
-                    <div class="">
-                        <div class="my-2">
-                            <h1 class="font-semibold text-sm ">Chicken Masala</h1>
-                            <p class="text-xs">269$/each</p>
-                        </div>
-                        <div>
-                            <button class="bg-slate-100 text-black px-[6px] py-1 rounded-l">-</button>
-                            <button class="bg-white text-black px-4 mx-[-5px] hover:cursor-auto">1</button>
-                            <button class="bg-slate-100 text-black px-1 py-1 rounded-r">+</button>
-                        </div>
-                    </div>
-                    <div class=" mt-[5.5rem]">
-                        <p class="font-semibold text-sm"><span>269</span><span>$</span></p>
-                    </div>
-                    <div>
-                        <i
-                            class="fa-solid fa-trash text-red-500 bg-white p-[6px] rounded-md absolute right-[-8px] top-[-8px]"></i>
-                    </div>
-                </div> -->
+            <div class="space-y-4 bg-red-500 text-white p-4 grow" id="shoping-bag">
 
             </div>
+            <div class="py-2 border bg-white">
+                <h1 class="text-right px-8 font-semibold text-red-500 text-xl">
+                    <span class="pr-2">Place Order</span>
+                    <span id="all-total-amount">0</span>
+                    <span>$</span>
+                </h1>
+            </div>
         </aside>
-    </section>
 
-    <section class="max-w-screen-xl border mx-auto relative">
-        <div class="py-4">
-            <h1 class="text-right px-8 font-semibold text-red-500 text-xl">
-                <span class="pr-2">Place Order</span>
-                <span id="all-total-amount">0</span>
-                <span>$</span>
-            </h1>
-        </div>
+        <!-- // mobile-menu-sidebar  -->
+        <aside class="absolute lg:hidden top-0 left-0 w-64 h-full overflow-hidden z-10 mobile-menu-sidebar-closed"
+            id="mobile-menu-sidebar">
+            <div class="text-red-500 flex justify-between px-4  font-semibold bg-white py-[14px]">
+                <button>
+                    <img class="h-8 w-16" src="./src/img/nav-main-image.png" alt="navbar-main-image">
+                </button>
+                <button class="border border-red-500 px-1 rounded-md" onclick="openMobileMenuToggle()">
+                    Close
+                </button>
+            </div>
+            <div class="space-y-2 bg-red-500 py-4 pl-4 h-full">
+                <div class="grid gap-2 ">
+                    <button
+                        class="border border-red bg-white text-red-500 font-semibold  py-1 rounded-l-md hover:bg-white hover:text-black w-full ">
+                        MENU
+                    </button>
+                    <button
+                        class="border border-red bg-white text-red-500 font-semibold  py-1 rounded-l-md hover:bg-white hover:text-black w-full ">
+                        REWARDS
+                    </button>
+                    <button
+                        class="border border-red bg-white text-red-500 font-semibold  py-1 rounded-l-md hover:bg-white hover:text-black w-full ">
+                        LOCATION
+                    </button>
+                    <button
+                        class="border border-red bg-white text-red-500 font-semibold  py-1 rounded-l-md hover:bg-white hover:text-black w-full ">
+                        GIFT CARDS
+                    </button>
+                    <button
+                        class="border border-red bg-white text-red-500 font-semibold  py-1 rounded-l-md hover:bg-white hover:text-black w-full ">
+                        LOG IN
+                    </button>
+                </div>
+            </div>
+        </aside>
     </section>
 
     <!-- javaScript add  -->
